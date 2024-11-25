@@ -1,0 +1,79 @@
+The following scenarios all need to be tested:
+
+1. Insertion of an element when the list is completely empty
+    Expected result: Memory is allocated to the student and should be correctly added to the list. Head and tail should point to first student, as well as currStudent.
+                     If listing the roster correclty prints out the single student, then everything is working as intended.
+
+2. Insertion of one element when the list has at least 1 element
+    Expected result: Memory is allocated to the student, and the student is correclty added to the list. Head should still point to the first student added and tail should point to the most recent student added since new students are added to the end of the list.
+                     If listing the roster prints out the students in the order they were added in, then everything is working as intended.
+
+3. Insertion of multiple elements into a non-empty list
+    Expected result: Memory is allocated to the students, and the students are correclty added to the list. Head should still point to the first student added and tail should point to the most recent student added since new students are added to the end of the list.
+                     If listing the roster prints out all the students in the order they were added in, then everything is working as intended.
+
+4. Deletion of a student in the roster when the inputted ID number doesn't belong to any student in the list
+    Expected result: The roster list remains unchanged
+                     If the roster is listed and the entries are unchanged, then the test is passed
+
+5. Deletion of a student in the roster based on inputted ID number
+    Expected result: The student with the matching ID number is removed from the list, and all other elements stay in the same order
+                     If the roster is listed and only the student with the matching ID number is removed and all other elements are in the same order, then the test case is passed
+
+6. Deleting the same student twice
+    Expected result: The roster list remains unchanged 
+                     If the roster is listed and everything is the same, then the test case is successfully passed
+
+7. Deleting the first student in the roster
+    Expected result: The first student is removed and the rest of the list is unchanged. Head should point to the new first student now.
+
+8. Deleting the final student in the roster
+    Expected result: The final student is removed and the rest of the list is unchanged. Tail should point to the new final student now.
+
+9. Deleting all students in the roster
+    Expected result: The list is completely empty and head and tail are both nullptr
+
+10. Adding students to a roster where all elements have been deleted
+    Expected result: Students are added to the list with no problems
+
+11. Listing all the elements in a roster with at least 1 student
+    Expected result: All students in the list are printed out in the correct order
+
+12. Listing elements in an empty roster
+    Expected result: Nothing is printed out
+
+To run the tests, use the following commands:
+./rostertest < testinput.txt > testoutput.txt
+diff testoutput.txt expectedoutput.txt
+
+The input file contains all the commands that should be tested (such as adding a student to an empty roster, 
+listing out a full roster, deleting a nonexistent student from the roster, etc)
+
+Test order:
+    a. Inserts one student to the roster and lists out the roster 
+            - Tests insertion of one element (case 1)
+    b. Inserts another student into the roster and lists it out
+            - Tests insertion of multiple elements and listing of multiple elements (cases 2 and 11)
+    c. Inserts more students into the roster and lists out the roster
+            - Tests that insertion of multiple elements works and doesn't cause problems with the pointers (case 3 and 11)
+    d. Tries to remove a student from the roster using an ID number that no student in the roster has
+            - Makes sure that removing nonexistent students doesn't cause any errors (case 4)
+    e. Removes a student from the roster and lists out the roster 
+            - Makes sure that deleting one student works correctly (case 5)
+    f. Removes the same student from the roster as in part e and lists out the roster 
+            - Makes sure that removing the same student twice doesn't cause any errors (case 6)
+    g. Removes the first student from the roster and lists out the roster
+            - Makes sure that removing the first student doesn't cause any errors, such as with the head pointer (case 7)
+    h. Removes the last student from the roster and lists out the roster
+            - Makes sure that removing the first student doesn't cause any errors, such as with the tail pointer (case 8)
+    i. Deletes all the students in the roster and lists out the roster
+            - Makes sure that deleting all the students doesn't cause any errors with the pointers (cases 9 and 12)
+    j. Adds a student to the currently empty roster and lists it out
+            - Makes sure there are no errors with the pointers or anything else when a student is added to a roster where all students have been removed (case 10)
+    l. Removes the student added in part j from the roster and lists out the roster
+            - Makes sure that roster is still printed out correctly when all elements are deleted (case 12)
+
+To test it with other files, input a new test file, run it through rostertest and store the output in another txt file, and then compare the differences between the 
+generated output and expected output
+
+If there's no difference between the outputs, then doing diff testoutput.txt expectedoutput.txt shouldn't print out anything

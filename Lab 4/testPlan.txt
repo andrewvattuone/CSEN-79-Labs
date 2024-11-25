@@ -1,0 +1,77 @@
+The following scenarios all need to be tested:
+
+1. Insertion of an element when the array is completely emtpy
+    Expected result: Memory is allocated to the array and the student is successfully added
+
+2. Insertion of an element when the array has some elements but isn't completely full
+    Expected result: Students are successfully added to the roster
+
+3. Insertion of an element when the array is completely full
+    Expected result: More memory is allocated to the array and the student(s) are successfully added to the roster
+
+4. Deletion of a student in the array based on the inputted ID number
+    Expected result: student is deleted from the roster and replaced with the student at the last entry in the roster
+
+5. Deleting the same student twice
+    Expected result: since the student doesn't exist in the roster anymore, nothing should be deleted and the roster should remain the same
+
+6. Deletion of a student in the array when the inputted ID number doesn't exist in the array
+    Expected result: since the student doesn't exist in the roster, nothing should be deleted and the roster should remain the same
+
+7. Deletion of student that causes number of students left to be equal to 0.5*count
+    Expected result: no memory should be freed prematurely and the roster should print out normally
+
+8. Deletion of student that causes the number of students left to be equal to 0.5*count -1
+    Expected result: the correct amount of memory should be freed so that the roster is printed out correctly
+
+9. Listing of all students in a full roster
+    Expected result: successfully prints out all the students in the full roster
+
+10. Listing of all students in a partially full roster
+    Expected result: successfully prints out all the students in the paritally full roster and doesn't list any students from the deleted poriton of the roster
+
+11. Listing an empty roster
+    Expected result: doesn't print out anything since there are no students in the roster
+
+
+
+To run the tests, use the following commands:
+./rostertest < testinput.txt > testoutput.txt
+diff testoutput.txt expectedoutput.txt
+
+
+The input file contains all the commands that should be tested (such as adding a student to an empty roster, 
+listing out a full roster, deleting a nonexistent student from the roster, etc)
+
+
+Test order:
+    a. Inserts one student to the roster and lists out the roster 
+            - Tests both insertion of one element and listing of one element
+    b. Inserts multiple students in to the roster (less than 10 total) and lists out the roster (cases 1 and 10)
+            - Tests insertion of multiple elements and listing of multiple elements (cases 2 and 10)
+    c. Inserts more students in the roster so there's exactly 10 (exaclty equal to current max capacity) and lists them out
+            - Tests to make sure that dynamic array reallocation doesn't occur early and listing a full roster works (case 9)
+    d. Inserts more students in the roster so there's more than the max number of students (which would increase the array size)
+            - Makes sure that increasing the array works correclty when capacity is full (case 3)
+    e. Removes a student from the roster and lists out the roster 
+            - Makes sure that deleting one student works correctly (case 4)
+    f. Removes the same student from the roster as in step 5  and lists out the roster 
+            - Makes sure that removing the same student twice doesn't cause any errors (case 5)
+    g. Removes a student with an ID that doesn't match any student in the roster and lists out the roster 
+            - Makes sure that removing nonexistent students doesn't cause any errors (case 6)
+    h. Removes students from the roster until there are 20 students left and lists out roster 
+            - Makes sure that it doesn't accidentally deallocate memory from the array early (case 7)
+    i. Removes one more student from the roster (which should cause the allocated memory in the array to shrink by half) and lists it out 
+            - Makes sure memory deallocation works correctly (case 8)
+    j. Removes the remaining students from the roster and prints them out
+            - Makes sure printing an empty roster works (case 11)
+
+
+To test it with other files, input a new test file, run it through rostertest and store the output in another txt file, and then compare the differences between the 
+generated output and expected output
+
+
+If there's no difference between the outputs, then the test should indicate that
+Ex terminal output for same test output and successful output:
+402d401
+< 

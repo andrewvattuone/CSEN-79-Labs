@@ -1,0 +1,31 @@
+The following scenarios all need to be tested:
+
+1. Insertion of an element when the array is completely emtpy
+
+2. Insertion of an element when the array has some elements but isn't completely full
+
+3. Insertion of an element when the array is completely full
+
+4. Deletion of a student in the array based on the inputted ID number
+
+5. Deletion of a student in the array when the inputted ID number doesn't exist in the array
+
+6. Deleting the same student twice
+
+7. Listing of all students in a full roster
+
+8. Listing of all students in a partially full roster
+
+9. Listing an empty roster
+
+To run the tests, use the following commands:
+./rostertest < testinput.txt > testoutput.txt
+diff testoutput.txt expectedoutput.txt
+
+The input file contains all the commands that should be tested (such as adding a student to an empty roster, 
+listing out a full roster, deleting a nonexistent student from the roster, etc)
+
+To test it with other files, input a new test file, run it through rostertest and store the output in another txt file, and then compare the differences between the 
+generated output and expected output
+
+If there's no difference between the outputs, then running diff testoutput.txt expectedoutput.txt should print out nothing

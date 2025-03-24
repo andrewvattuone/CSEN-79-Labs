@@ -1,1 +1,1 @@
-CSEN 79 Lab instructions and code. Instructions for each lab are included in their respective folders.
+CSEN 79 lab instructions and code. Instructions for each lab are included in their respective folders.
